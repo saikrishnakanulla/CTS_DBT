@@ -1,0 +1,15 @@
+version: 2
+
+seeds:
+  - name: Lkp_c
+    config:
+      schema: LOOKUP_DEV
+  - name: Lkp_division
+    config:
+      schema: LOOKUP_DEV
+  - name: Lkp_category
+    config:
+      schema: LOOKUP_DEV
+  - name: Lkp_Shippers
+    config:
+      schema: LOOKUP_DEV

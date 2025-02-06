@@ -1,0 +1,17 @@
+version: 2
+  {{ config(materialized='table') }}
+
+sources:
+  - name: raw_qwt
+    database: QWT_ANALYTICS
+    schema: RAW_DEV
+    tables:
+      - name: raw_customers
+      - name: raw_products
+      - name: raw_orders
+      - name: raw_orderDetails
+      - name: RAW_ORDER_DETAILS
+      - name: RAW_EMPLOYEE
+      - name: raw_offices
+      - name: raw_shipments
+      - name: RAW_SUPPLIERS_XML

@@ -1,0 +1,21 @@
+{{config(materialized='table',schema='TRANSFORMING_DEV')}}
+
+select 
+p.Product_id,
+p.Productname,
+s.CompanyName,
+s.ContactName,
+s.Address,
+s.City,
+s.Country,
+c.CategoryName,
+p.quantityperunit,
+p.unitcost,
+p.unitprice,
+p.unitsinstock,
+p.unitsonorder,
+TO_DECIMAL((p.unitcost-p.unitprice), 9,2) as Profit,
+IFF(p.unitsinstock-p.unitsonorder < 0, 'Not Available','Available') as Productavailability
+from {{ref('Stg_Products')}} as p
+left join {{ref('trf_Suppliers')}} as s on s.SupplierID = p.SUPPLIERID
+left join {{ref('Lkp_category')}} as c on p.categoryid = c.CategoryID

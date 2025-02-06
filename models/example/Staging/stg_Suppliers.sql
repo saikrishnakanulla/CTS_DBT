@@ -1,0 +1,5 @@
+{{config(materialized='table')}}
+
+
+select *from {{source('raw_qwt','RAW_SUPPLIERS_XML')}}
+
